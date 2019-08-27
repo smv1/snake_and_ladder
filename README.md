@@ -4,7 +4,7 @@ Simulator for snake and ladder game
 
 <b>restcontroller.SimulatorController</b> - Controller for simulating, parameter - no. of simulation
 
-<b>SnakeLadderGameSimulator</b> - Simulated multiple snakeladder games, generates random snakes and ladder and then start.
+<b>SnakeLadderGameSimulator</b> - Simulate multiple snakeladder games, generates random snakes and ladder and then start.
 
 <b>gamecontroller.SnakeLadderGameController</b> - game controller which starts the game with players, total squares, snakes, ladder
 
