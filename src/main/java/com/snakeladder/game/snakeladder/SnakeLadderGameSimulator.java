@@ -92,7 +92,7 @@ public class SnakeLadderGameSimulator {
                                          Map<Integer, Integer> snakes, Map<Integer, Integer> ladder) {
 
         while (noSnakes + noLadders > 0) {
-            int pos1 = GameUtil.random(8, 1);
+            int pos1 = GameUtil.random(snakesLadderStart, snakesLadderEnd);
             int pos2 = GameUtil.random(snakesLadderStart, snakesLadderEnd);
             if (pos2 == pos1 || Math.abs(pos1 - pos2) <= rowLength) {
                 continue;
