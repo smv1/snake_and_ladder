@@ -15,8 +15,8 @@ Simulator for snake and ladder game
 <b>snapshot.GameSnapShot</b> - snapshot/output interface of game
 
 <b>Players move:</b></br>
-player move based on the roll of dice, if ladder or snake is then it follows that.
-if already a player is there then this player beats already present player, and it sent to starting position
+player move based on the roll of dice, if ladder or snake is then it follows that.</br>
+if already a player is there then this player beats already present player, and it sent to starting position</br>
 
 
 ==================================================================
