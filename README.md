@@ -21,7 +21,6 @@ Simulator for snake and ladder game
 
 game.snakeladder.squares=100</br>
 game.snakeladder.rowlength=10   --- row length as snake and ladder will we in upper or lower rows</br>
-game.max.roll.chance=true       --- flag roll again incase we get max dice</br>
 
 simulation.players.min=2</br>
 simulation.players.max=4</br>

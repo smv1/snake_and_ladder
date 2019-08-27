@@ -19,8 +19,6 @@ public class SnakeLadderGameControllerImpl implements SnakeLadderGameController 
     GameSnapShot gameSnapShot;
     @Value("${game.snakeladder.squares}")
     private int squares;
-    @Value("${game.max.roll.chance}")
-    private boolean maxRollChance;
 
     @Autowired
     SnakeLadderGameControllerImpl(Dice dice,GameSnapShot gameSnapShot){
