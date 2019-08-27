@@ -12,7 +12,6 @@ import java.util.Queue;
 public class Board {
 
     private static final Integer start = 1;
-    private static final Integer end = 100;
 
     private final Map<Integer, Integer> ladder;
     private final Map<Integer, Integer> snakes;
@@ -26,7 +25,7 @@ public class Board {
         this.snakes = snakes;
         this.squares = squares;
         this.gameId = gameId;
-        playerPos = new HashMap<>();
+        this.playerPos = new HashMap<>();
         this.gameSnapShot = gameSnapShot;
     }
 
@@ -79,13 +78,12 @@ public class Board {
     }
 
     private boolean isValid(int newPos) {
-        return newPos <= end;
+        return newPos <= squares;
     }
 
     public String getGameInitSnap() {
         StringBuilder sb = new StringBuilder();
-        sb
-                .append("\nGameId = ")
+        sb.append("\nGameId = ")
                 .append(gameId)
                 .append("\nBoard squares = ")
                 .append(squares)
