@@ -12,7 +12,7 @@ Simulator for snake and ladder game
 
 <b>core.Dice</b> - Dice
 
-<b>snapshot.GameSnapShot</b> - snapshot/output for game
+<b>snapshot.GameSnapShot</b> - snapshot/output interface of game
 
 
 ==================================================================
