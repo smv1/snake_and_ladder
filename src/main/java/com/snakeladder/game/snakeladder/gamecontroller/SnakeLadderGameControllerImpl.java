@@ -3,6 +3,7 @@ package com.snakeladder.game.snakeladder.gamecontroller;
 import com.snakeladder.game.snakeladder.core.Board;
 import com.snakeladder.game.snakeladder.core.Dice;
 import com.snakeladder.game.snakeladder.core.Player;
+import com.snakeladder.game.snakeladder.core.PlayerMove;
 import com.snakeladder.game.snakeladder.snapshot.GameSnapShot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,14 +53,15 @@ public class SnakeLadderGameControllerImpl implements SnakeLadderGameController 
 
         while (true) {
             Player player = players.poll();
-            int roll, pos;
+            int roll;
+            PlayerMove playerMove;
 
             do {
                 roll = dice.roll();
-                pos = board.makePlayerMove(player, roll);
-            } while (roll == Dice.MAXVALUE);
+                playerMove = board.makePlayerMove(player, roll);
+            } while (roll == Dice.MAXVALUE || playerMove.isLadderTransition());
 
-            if (checkWin(pos)) {
+            if (checkWin(playerMove)) {
                 winner = player;
                 break;
             }
@@ -68,8 +70,8 @@ public class SnakeLadderGameControllerImpl implements SnakeLadderGameController 
         postGameComplete(gameId, winner);
     }
 
-    private boolean checkWin(int pos) {
-        return squares == pos;
+    private boolean checkWin(PlayerMove playerMove) {
+        return squares == playerMove.getPos();
     }
 
     private void postGameComplete(String gameId, Player winner) {

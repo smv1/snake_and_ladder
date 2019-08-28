@@ -43,7 +43,8 @@ public class Board {
         making the player move, takes in account snakes and ladder
         Also beat other player incase at same position
      */
-    public int makePlayerMove(Player currplayer, int roll) {
+    public PlayerMove makePlayerMove(Player currplayer, int roll) {
+        boolean isLadderTransition=false,isSnakeTransition=false;
         int oldPos = playerPos.get(currplayer);
         int newPos = oldPos + roll;
 
@@ -51,9 +52,12 @@ public class Board {
             if (ladder.containsKey(newPos)) {
                 gameSnapShot.snapLadder(gameId, newPos, ladder.get(newPos));
                 newPos = ladder.get(newPos);
+                isLadderTransition = true;
+
             } else if (snakes.containsKey(newPos)) {
                 gameSnapShot.snapSnake(gameId, newPos, snakes.get(newPos));
                 newPos = snakes.get(newPos);
+                isSnakeTransition = true;
             }
 
             checkPlayersAndMove(currplayer, playerPos, newPos);
@@ -63,7 +67,9 @@ public class Board {
         }
 
         gameSnapShot.snapShot(gameId, currplayer, roll, oldPos, newPos);
-        return newPos;
+
+        PlayerMove playerMove = new PlayerMove(newPos,isLadderTransition, isSnakeTransition);
+        return playerMove;
     }
 
     //move other player at new pos to start as these are hit
